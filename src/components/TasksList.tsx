@@ -11,9 +11,7 @@ import {
 import Icon from "react-native-vector-icons/Feather";
 
 import { ItemWrapper } from "./ItemWrapper";
-
-import trashIcon from "../assets/icons/trash/trash.png";
-import TaskItem from "./TaskItem";
+import { TaskItem } from "./TaskItem";
 
 export interface Task {
   id: number;
@@ -48,6 +46,7 @@ export function TasksList({
               index={index}
               toggleTaskDone={toggleTaskDone}
               removeTask={removeTask}
+              editTask={editTask}
             ></TaskItem>
           </ItemWrapper>
         );
