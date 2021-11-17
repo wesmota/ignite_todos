@@ -8,7 +8,6 @@ import {
   StyleSheet,
   FlatListProps,
 } from "react-native";
-import Icon from "react-native-vector-icons/Feather";
 
 import { ItemWrapper } from "./ItemWrapper";
 import { TaskItem } from "./TaskItem";

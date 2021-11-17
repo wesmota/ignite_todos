@@ -7,7 +7,7 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import { Icon } from "react-native-vector-icons/Icon";
+import Icon from "react-native-vector-icons/Feather";
 import { Task } from "./TasksList";
 
 import trashIcon from "../assets/icons/trash/trash.png";
@@ -47,10 +47,14 @@ export function TaskItem({
   }
 
   useEffect(() => {
-    if (isEditing) {
-      textInputRef.current?.focus();
-    } else {
-      textInputRef.current?.blur();
+    if (textInputRef.current) {
+      if (isEditing) {
+        console.log("is editing");
+        textInputRef.current.focus();
+      } else {
+        console.log("is not editing");
+        textInputRef.current.blur();
+      }
     }
   }, [isEditing]);
 
@@ -71,6 +75,7 @@ export function TaskItem({
           </View>
 
           <TextInput
+            autoFocus={isEditing}
             value={editedtask}
             onChangeText={(text) => setEditedtask(text)}
             editable={isEditing}
@@ -146,8 +151,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   iconsDivider: {
-    width: 1,
+    width: 5,
     height: "100%",
-    backgroundColor: "#B2B2B2",
+    borderLeftWidth: 1,
+    borderLeftColor: "#B2B2B2",
+    backgroundColor: "#1DB863",
   },
 });
